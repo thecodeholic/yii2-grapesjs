@@ -11,20 +11,24 @@ namespace thecodeholic\yii2grapesjs\assets;
 use yii\web\AssetBundle;
 
 /**
- * Class GrapesjsAssetBundle
+ * Class GrapesjsPresetWebpageAsset
  *
  * @author Zura Sekhniashvili <zurasekhniashvili@gmail.com>
  * @package thecodeholic\yii2grapesjs\assets
  */
-class GrapesjsAssetBundle extends AssetBundle
+class GrapesjsPresetWebpageAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/npm-asset/grapesjs';
+    public $sourcePath = '@vendor/npm-asset/grapesjs-preset-webpage';
 
     public $css = [
-        'dist/css/grapes.min.css'
+        'dist/grapesjs-preset-webpage.min.css'
     ];
 
     public $js = [
-        'dist/grapes.min.js'
+        'dist/grapesjs-preset-webpage.min.js'
+    ];
+
+    public $depends = [
+        GrapesjsAsset::class
     ];
 }
