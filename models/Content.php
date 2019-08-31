@@ -3,6 +3,7 @@
 namespace thecodeholic\yii2grapesjs\models;
 
 use thecodeholic\yii2grapesjs\models\query\ContentQuery;
+use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
 /**
@@ -22,6 +23,13 @@ class Content extends ActiveRecord
     public static function tableName()
     {
         return '{{%content}}';
+    }
+
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::class
+        ];
     }
 
     /**
