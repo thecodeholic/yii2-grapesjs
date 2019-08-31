@@ -12,7 +12,8 @@
     ],
     "require": {
         "yiisoft/yii2": "~2.0.0",
-        "npm-asset/grapesjs": "^0.15.3"
+        "npm-asset/grapesjs": "^0.15.3",
+        "npm-asset/grapesjs-preset-webpage": "^0.1.11"
     },
     "autoload": {
         "psr-4": {
