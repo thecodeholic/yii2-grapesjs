@@ -26,7 +26,7 @@ class Content extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%content}}';
+        return '{{%grapesjs_content}}';
     }
 
     public function behaviors()

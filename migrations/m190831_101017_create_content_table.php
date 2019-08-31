@@ -12,7 +12,7 @@ class m190831_101017_create_content_table extends Migration
      */
     public function safeUp()
     {
-        $this->createTable('{{%content}}', [
+        $this->createTable('{{%grapesjs_content}}', [
             'id' => $this->primaryKey(),
             'title' => $this->string(1024),
             'assets' => 'LONGTEXT',
@@ -30,6 +30,6 @@ class m190831_101017_create_content_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%content}}');
+        $this->dropTable('{{%grapesjs_content}}');
     }
 }
