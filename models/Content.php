@@ -11,7 +11,6 @@ use yii\db\ActiveRecord;
  * @property int $id
  * @property string $title
  * @property string $html
- * @property string $css
  * @property int $created_at
  * @property int $updated_at
  */
@@ -31,7 +30,7 @@ class Content extends ActiveRecord
     public function rules()
     {
         return [
-            [['html', 'css'], 'string'],
+            [['html'], 'string'],
             [['created_at', 'updated_at'], 'integer'],
             [['title'], 'string', 'max' => 1024],
         ];
@@ -46,7 +45,6 @@ class Content extends ActiveRecord
             'id' => 'ID',
             'title' => 'Title',
             'html' => 'Html',
-            'css' => 'Css',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
