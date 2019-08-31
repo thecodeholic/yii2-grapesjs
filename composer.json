@@ -1,0 +1,21 @@
+{
+    "name": "thecodeholic/yii2-grapesjs",
+    "description": "Grapesjs AssetBundle and widgets",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","yii2 grapesjs"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Zura Sekhniashvili",
+            "email": "zurasekhniashvili@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "thecodeholic\\yii2grapesjs\\": ""
+        }
+    }
+}
