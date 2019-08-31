@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\search\ContentSearch */
+/* @var $model thecodeholic\yii2grapesjs\models\search\ContentSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 

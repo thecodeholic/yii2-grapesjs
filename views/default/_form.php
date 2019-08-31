@@ -1,19 +1,16 @@
 <?php
 
-use thecodeholic\yii2grapesjs\widgets\GrapesjsInputWidget;
 use thecodeholic\yii2grapesjs\widgets\GrapesjsWidget;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-Yii::$app->fs->addPlugin(new League\Flysystem\Plugin\ListPaths());
-Yii::$app->fs->addPlugin(new League\Flysystem\Plugin\ListFiles());
+//Yii::$app->fs->addPlugin(new League\Flysystem\Plugin\ListPaths());
+//
+//$paths = array_map(function ($path) {
+//    return '/files/' . $path;
+//}, Yii::$app->fs->listPaths());
 
-$paths = array_map(function ($path) {
-    return '/files/' . $path;
-}, Yii::$app->fs->listPaths());
-echo '<pre>';
-var_dump($paths);
-echo '</pre>';
+
 /* @var $this yii\web\View */
 /* @var $model thecodeholic\yii2grapesjs\models\Content */
 /* @var $form yii\widgets\ActiveForm */
@@ -44,12 +41,11 @@ echo '</pre>';
                     'id' => '',
                     'type' => 'remote',
                     'stepsBeforeSave' => 1,
-                    'urlStore' => "/grapesjs/save?id=$model->id",
-                    'urlLoad' => "/grapesjs/get?id=$model->id",
+                    'urlStore' => "save?id=$model->id",
+                    'urlLoad' => "get?id=$model->id",
                 ],
                 'assetManager' => [
-                    'assets' => $paths,
-                    'upload' => "/grapesjs/upload"
+                    'upload' => "upload"
                 ]
             ]
         ]) ?>
