@@ -7,6 +7,9 @@
 
 namespace thecodeholic\yii2grapesjs\actions;
 
+use Yii;
+use yii\web\Response;
+
 /**
  * Class GetAction
  *
@@ -17,14 +20,14 @@ class GetAction extends BaseAction
 {
     /**
      * @inheritDoc
-     * @param array $params
+     * @param integer $id
      * @return array|mixed
      * @throws \yii\web\NotFoundHttpException
      * @author Zura Sekhniashvili <zurasekhniashvili@gmail.com>
      */
-    public function runWithParams($params)
+    public function run($id)
     {
-        $id = $params['id'];
+        Yii::$app->response->format = Response::FORMAT_JSON;
         $model = $this->findModel($id);
         return $model->toArray();
     }

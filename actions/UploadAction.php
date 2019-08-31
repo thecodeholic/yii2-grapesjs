@@ -20,7 +20,7 @@ use yii\web\UploadedFile;
  */
 class UploadAction extends BaseAction
 {
-    public function runWithParams($params)
+    public function run()
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
         $response = [];

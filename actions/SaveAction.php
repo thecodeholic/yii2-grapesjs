@@ -9,6 +9,7 @@ namespace thecodeholic\yii2grapesjs\actions;
 
 use thecodeholic\yii2grapesjs\models\Content;
 use Yii;
+use yii\web\Response;
 
 /**
  * Class SaveAction
@@ -19,9 +20,16 @@ use Yii;
 class SaveAction extends BaseAction
 {
 
-    public function runWithParams($params)
+    /**
+     *
+     *
+     * @param $id
+     * @return array|void
+     * @author Zura Sekhniashvili <zurasekhniashvili@gmail.com>
+     */
+    public function run($id)
     {
-        $id = $params['id'];
+        Yii::$app->response->format = Response::FORMAT_JSON;
         $content = Content::findOne($id);
         if (!$content) {
             $content = new Content();
