@@ -46,11 +46,14 @@ class GrapesjsWidget extends Widget
         $id = $this->options['id'];
 
         if ($this->clientOptions !== false) {
-            $clientOptions = Json::htmlEncode(array_merge_recursive ([
+            $clientOptions = Json::htmlEncode(array_merge_recursive([
                 'container' => "#$id",
                 'fromElement' => true,
                 'plugins' => ['gjs-preset-webpage'],
                 'storageManager' => [
+                    'params' => [Yii::$app->request->csrfParam => Yii::$app->request->csrfToken]
+                ],
+                'assetManager' => [
                     'params' => [Yii::$app->request->csrfParam => Yii::$app->request->csrfToken]
                 ]
             ], $this->clientOptions));
