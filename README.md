@@ -35,7 +35,7 @@ And add module in your config `modules`
 
 ```php
 'modules' => [
-    'grapesjs' => \thecodeholic\yii2grapesjs\Module,
+    'grapesjs' => \thecodeholic\yii2grapesjs\Module:class,
     ...
 ]
 ```
