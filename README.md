@@ -55,3 +55,47 @@ For example
 composer require creocoder/yii2-flysystem
 ```
 
+Using the widget in your own controller
+---------------------------------------
+If you do not want to use the module and integrate in your controller, you should add `JsonParser` in request parser's.
+
+```php
+'request' => [
+    'parsers' => [
+        'application/json' => 'yii\web\JsonParser',
+    ]
+]
+```
+
+Display the widget in your view file.
+
+```php
+<?php echo \thecodeholic\yii2grapesjs\widgets\GrapesjsWidget::widget([
+    'clientOptions' => [
+        'storageManager' => [
+            'id' => '',
+            'type' => 'remote',
+            'stepsBeforeSave' => 1,
+            'urlStore' => "save?id=$model->id",
+            'urlLoad' => "get?id=$model->id",
+        ],
+        'assetManager' => [
+            'upload' => "upload"
+        ]
+    ]
+]) ?>
+```
+
+Add the following actions to your controller.
+
+```php
+public function actions()
+{
+    return array_merge(parent::actions(), [
+        'get' => \thecodeholic\yii2grapesjs\actions\GetAction::class,
+        'save' => \thecodeholic\yii2grapesjs\actions\SaveAction::class,
+        'upload' => \thecodeholic\yii2grapesjs\actions\UploadAction::class
+    ]);
+}
+```
+
