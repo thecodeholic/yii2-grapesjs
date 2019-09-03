@@ -25,6 +25,13 @@ class GrapesjsWidget extends Widget
     public $options = [];
     public $clientOptions = [];
 
+    /**
+     * Custom placeholder variables, which will be added inside richtext editor
+     * @author Zura Sekhniashvili <zurasekhniashvili@gmail.com>
+     * @var array
+     */
+    public $variables = [];
+
     public function init()
     {
         parent::init();
@@ -57,8 +64,24 @@ class GrapesjsWidget extends Widget
                     'params' => [Yii::$app->request->csrfParam => Yii::$app->request->csrfToken]
                 ]
             ], $this->clientOptions));
-            $js = "grapesjs.init($clientOptions);";
-            $view->registerJs($js);
+
+            $js = "var editor = grapesjs.init($clientOptions);";
+            if ($this->variables){
+                $icon = Html::dropDownList('', '', array_merge([
+                    '' => '--Select--'
+                ], $this->variables), ['class' => 'gjs-field']);
+                 $js .= "editor.RichTextEditor.add('custom-vars', {
+                      icon: `$icon`,
+                        // Bind the 'result' on 'change' listener
+                      event: 'change',
+                      result: (rte, action) => rte.insertHTML(action.btn.firstChild.value),
+                      // Reset the select on change
+                      update: (rte, action) => { action.btn.firstChild.value = \"\";}
+                })";
+            }
+            $view->registerJs("(function(){
+                $js
+            })();");
         }
     }
 }

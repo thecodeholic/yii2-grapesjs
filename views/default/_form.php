@@ -12,6 +12,7 @@ use yii\widgets\ActiveForm;
 
 
 /* @var $this yii\web\View */
+/* @var $grapesJsVariables array */
 /* @var $model thecodeholic\yii2grapesjs\models\Content */
 /* @var $form yii\widgets\ActiveForm */
 ?>
@@ -47,6 +48,12 @@ use yii\widgets\ActiveForm;
                 'assetManager' => [
                     'upload' => "upload"
                 ]
+            ],
+            // custom placeholder variables which will be added into richtext
+            'variables' => [
+                '{first_name}' => 'First Name',
+                '{last_name}' => 'Last Name',
+                '{age}' => 'Age',
             ]
         ]) ?>
     <?php endif; ?>

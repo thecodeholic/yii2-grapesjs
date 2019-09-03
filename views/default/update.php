@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
+/* @var $grapesJsVariables array */
 /* @var $model thecodeholic\yii2grapesjs\models\Content */
 
 $this->title = 'Update Content: ' . $model->title;
@@ -16,6 +17,7 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <?= $this->render('_form', [
         'model' => $model,
+        'grapesJsVariables' => $grapesJsVariables
     ]) ?>
 
 </div>

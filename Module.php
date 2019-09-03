@@ -18,6 +18,14 @@ use yii\web\JsonParser;
  */
 class Module extends \yii\base\Module
 {
+    /**
+     * Custom placeholder variables, which will be added inside richtext editor
+     *
+     * @author Zura Sekhniashvili <zurasekhniashvili@gmail.com>
+     * @var array
+     */
+    public $grapesJsVariables = [];
+
     public function init()
     {
         \Yii::$app->request->parsers['application/json'] = JsonParser::class;

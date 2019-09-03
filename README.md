@@ -35,7 +35,16 @@ And add module in your config `modules`
 
 ```php
 'modules' => [
-    'grapesjs' => \thecodeholic\yii2grapesjs\Module:class,
+    'grapesjs' => [
+        'class' => \thecodeholic\yii2grapesjs\Module::class,
+        // custom placeholder variables which will be added into richtext
+        // default is empty array
+        'grapesJsVariables' => [
+            '{first_name}' => 'First Name',
+            '{last_name}' => 'Last Name',
+            '{age}' => 'Age',
+        ]
+    ],
     ...
 ]
 ```
@@ -81,6 +90,13 @@ Display the widget in your view file.
         ],
         'assetManager' => [
             'upload' => "upload"
+        ],
+        // custom placeholder variables which will be added into richtext
+        // default is empty array
+        'variables' => [
+            '{first_name}' => 'First Name',
+            '{last_name}' => 'Last Name',
+            '{age}' => 'Age',
         ]
     ]
 ]) ?>

@@ -18,6 +18,11 @@ use thecodeholic\yii2grapesjs\models\search\ContentSearch;
 class DefaultController extends Controller
 {
     /**
+     * @author Zura Sekhniashvili <zurasekhniashvili@gmail.com>
+     * @var \thecodeholic\yii2grapesjs\Module
+     */
+    public $module;
+    /**
      * {@inheritdoc}
      */
     public function behaviors()
@@ -72,6 +77,7 @@ class DefaultController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'grapesJsVariables' => isset($this->module->grapesJsVariables) ? $this->module->grapesJsVariables : []
         ]);
     }
 
@@ -92,6 +98,7 @@ class DefaultController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'grapesJsVariables' => isset($this->module->grapesJsVariables) ? $this->module->grapesJsVariables : []
         ]);
     }
 
