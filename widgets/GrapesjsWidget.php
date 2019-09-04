@@ -17,7 +17,7 @@ use yii\helpers\Json;
 /**
  * Class GrapesjsWidget
  *
- * @author Zura Sekhniashvili <zurasekhniashvili@gmail.com>
+ * @author  Zura Sekhniashvili <zurasekhniashvili@gmail.com>
  * @package thecodeholic\yii2grapesjs\widgets
  */
 class GrapesjsWidget extends Widget
@@ -25,8 +25,11 @@ class GrapesjsWidget extends Widget
     public $options = [];
     public $clientOptions = [];
 
+    public $defaultDevice = 'Desktop';
+
     /**
      * Custom placeholder variables, which will be added inside richtext editor
+     *
      * @author Zura Sekhniashvili <zurasekhniashvili@gmail.com>
      * @var array
      */
@@ -66,11 +69,14 @@ class GrapesjsWidget extends Widget
             ], $this->clientOptions));
 
             $js = "var editor = grapesjs.init($clientOptions);";
-            if ($this->variables){
+            if ($this->defaultDevice){
+                $js .= " editor.setDevice('{$this->defaultDevice}'); ";
+            }
+            if ($this->variables) {
                 $icon = Html::dropDownList('', '', array_merge([
                     '' => '--Select--'
                 ], $this->variables), ['class' => 'gjs-field']);
-                 $js .= "editor.RichTextEditor.add('custom-vars', {
+                $js .= "editor.RichTextEditor.add('custom-vars', {
                       icon: `$icon`,
                         // Bind the 'result' on 'change' listener
                       event: 'change',
