@@ -109,7 +109,13 @@ Add the following actions to your controller.
 public function actions()
 {
     return array_merge(parent::actions(), [
-        'get' => \thecodeholic\yii2grapesjs\actions\GetAction::class,
+        'get' => [
+            'class' => \thecodeholic\yii2grapesjs\actions\GetAction::class,
+            // If includeFields is presented `excludeFields` are not considered
+            // 'includeFields' => ['css', 'html'],
+            // Exclude assets column from returned fields of the Content model
+            'excludeFields' => ['assets']
+        ],
         'save' => \thecodeholic\yii2grapesjs\actions\SaveAction::class,
         'upload' => \thecodeholic\yii2grapesjs\actions\UploadAction::class
     ]);
