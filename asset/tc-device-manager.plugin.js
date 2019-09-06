@@ -20,7 +20,9 @@ grapesjs.plugins.add('tc-device-manager', (editor, options) => {
     pn.removeButton(panelDevices.id, btnId);
   });
 
-  const selectOptions = config.devices.map(device => `<option value="${device.name}">${device.name}</option>`);
+  const selectOptions = config.devices.map(device => {
+    return `<option ${device.name === config.defaultDevice ? 'selected' : ''} value="${device.name}">${device.name}</option>`
+  });
   const gjsDevices = document.createElement('div');
   gjsDevices.className = 'gjs-devices-c';
   gjsDevices.innerHTML = `
