@@ -9,6 +9,7 @@ namespace thecodeholic\yii2grapesjs\widgets;
 
 
 use thecodeholic\yii2grapesjs\assets\GrapesjsPresetWebpageAsset;
+use thecodeholic\yii2grapesjs\assets\Yii2GrapesJsAsset;
 use Yii;
 use yii\base\Widget;
 use yii\helpers\Html;
@@ -44,6 +45,7 @@ class GrapesjsWidget extends Widget
     public function run()
     {
         $this->registerPlugin();
+
         return Html::tag('div', '', $this->options);
     }
 
@@ -51,13 +53,14 @@ class GrapesjsWidget extends Widget
     {
         $view = $this->getView();
         GrapesjsPresetWebpageAsset::register($view);
+        Yii2GrapesJsAsset::register($view);
         $id = $this->options['id'];
 
         if ($this->clientOptions !== false) {
             $clientOptions = Json::htmlEncode(array_merge_recursive([
                 'container' => "#$id",
                 'fromElement' => true,
-                'plugins' => ['gjs-preset-webpage'],
+                'plugins' => ['gjs-preset-webpage', 'tc-device-manager'],
                 'storageManager' => [
                     'params' => [Yii::$app->request->csrfParam => Yii::$app->request->csrfToken]
                 ],
