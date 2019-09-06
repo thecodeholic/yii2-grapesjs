@@ -25,8 +25,6 @@ class GrapesjsWidget extends Widget
     public $options = [];
     public $clientOptions = [];
 
-    public $defaultDevice = 'Desktop';
-
     /**
      * Custom placeholder variables, which will be added inside richtext editor
      *
@@ -69,9 +67,6 @@ class GrapesjsWidget extends Widget
             ], $this->clientOptions));
 
             $js = "var editor = grapesjs.init($clientOptions);";
-            if ($this->defaultDevice){
-                $js .= " editor.setDevice('{$this->defaultDevice}'); ";
-            }
             if ($this->variables) {
                 $icon = Html::dropDownList('', '', array_merge([
                     '' => '--Select--'
