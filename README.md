@@ -80,7 +80,6 @@ Display the widget in your view file.
 
 ```php
 <?php echo \thecodeholic\yii2grapesjs\widgets\GrapesjsWidget::widget([
-    'defaultDevice' => 'Desktop',
     'clientOptions' => [
         'storageManager' => [
             'id' => '',
@@ -91,6 +90,32 @@ Display the widget in your view file.
         ],
         'assetManager' => [
             'upload' => "upload"
+        ],
+        'deviceManager' => [
+            'defaultDevice' => 'Resolution 2',
+            'devices' => [
+                [
+                    'name' => 'Resolution 1',
+                    'width' => '850px',
+                    'widthMedia' => '992px'
+                ],
+                [
+                    'name' => 'Resolution 2',
+                    'width' => '750px',
+                ],
+                [
+                    'name' => 'Resolution 3',
+                    'width' => '650px'
+                ],
+                [
+                    'name' => 'Resolution 4',
+                    'width' => '450px',
+                ],
+                [
+                    'name' => 'Resolution 5',
+                    'width' => '375px',
+                ]
+            ]
         ]
     ],
     // custom placeholder variables which will be added into richtext
