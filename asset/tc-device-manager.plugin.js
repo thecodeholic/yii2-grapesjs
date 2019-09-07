@@ -13,6 +13,7 @@ grapesjs.plugins.add('tc-device-manager', (editor, options) => {
   const buttons = panelDevices.get('buttons');
 
   commands.add('deviceChange', (editor, sender, data) => {
+    console.log(editor, sender, data);
     editor.setDevice(data.name);
   });
 
@@ -47,4 +48,8 @@ grapesjs.plugins.add('tc-device-manager', (editor, options) => {
     panelDevices.view.$el[0].appendChild(gjsDevices);
     editor.setDevice(config.defaultDevice);
   });
+
+  editor.getDeviceObject = () => {
+    return config.devices.find(device => device.name === editor.getDevice());
+  }
 });
