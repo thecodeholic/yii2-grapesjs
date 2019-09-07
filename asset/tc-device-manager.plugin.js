@@ -13,7 +13,7 @@ grapesjs.plugins.add('tc-device-manager', (editor, options) => {
   const buttons = panelDevices.get('buttons');
 
   commands.add('deviceChange', (editor, sender, data) => {
-    editor.setDevice(data.value);
+    editor.setDevice(data.name);
   });
 
   buttons.models.map(btn => btn.id).forEach(btnId => {
@@ -40,7 +40,7 @@ grapesjs.plugins.add('tc-device-manager', (editor, options) => {
   `;
   const select = gjsDevices.querySelector('select');
   select.onchange = (ev) => {
-    commands.run('deviceChange', {value: ev.target.value});
+    commands.run('deviceChange', config.devices.find(device => device.name === ev.target.value));
   };
 
   editor.on('load', () => {
