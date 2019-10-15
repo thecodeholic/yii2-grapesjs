@@ -18,13 +18,13 @@ use yii\web\AssetBundle;
  */
 class GrapesjsAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/npm-asset/grapesjs';
+    public $sourcePath = '@vendor/thecodeholic/yii2-grapesjs/asset/grapesjs';
 
     public $css = [
-        'dist/css/grapes.min.css'
+        'css/grapes.min.css'
     ];
 
     public $js = [
-        'dist/grapes.min.js'
+        'grapes.min.js'
     ];
 }

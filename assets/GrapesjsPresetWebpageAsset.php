@@ -18,14 +18,14 @@ use yii\web\AssetBundle;
  */
 class GrapesjsPresetWebpageAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/npm-asset/grapesjs-preset-webpage';
+    public $sourcePath = '@vendor/thecodeholic/yii2-grapesjs/asset/grapesjs-preset-webpage';
 
     public $css = [
-        'dist/grapesjs-preset-webpage.min.css'
+        'grapesjs-preset-webpage.min.css'
     ];
 
     public $js = [
-        'dist/grapesjs-preset-webpage.min.js'
+        'grapesjs-preset-webpage.min.js'
     ];
 
     public $depends = [
