@@ -37,6 +37,7 @@ And add module in your config `modules`
 'modules' => [
     'grapesjs' => [
         'class' => \thecodeholic\yii2grapesjs\Module::class,
+        'filesPath' => '/files/'
         // custom placeholder variables which will be added into richtext
         // default is empty array
         'grapesJsVariables' => [
@@ -51,7 +52,7 @@ And add module in your config `modules`
 
 Configuring AssetManager
 ------------------------
-The package uses `Yii::$app->fs` so you need to configure `fs` component to be one of the available 
+The package uses `Yii::$app->fs` so you need to configure `fs` component to be one of the available
 targets of `creocoder\flysystem`
 
 Checkout its documentation if you want to specify different targets
@@ -146,4 +147,3 @@ public function actions()
     ]);
 }
 ```
-

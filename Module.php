@@ -26,6 +26,15 @@ class Module extends \yii\base\Module
      */
     public $grapesJsVariables = [];
 
+    /**
+     * Upload path.
+     * If you use AWS as file system, is the AWS S3 bucket URL
+     *
+     * @author lribeiro <luis.mribeiro@sapo.pt>
+     * @var string
+     */
+    public $filesPath = '/files/';
+
     public function init()
     {
         \Yii::$app->request->parsers['application/json'] = JsonParser::class;
