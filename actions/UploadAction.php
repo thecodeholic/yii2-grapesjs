@@ -20,6 +20,13 @@ use yii\web\UploadedFile;
  */
 class UploadAction extends BaseAction
 {
+    public $filesPath;
+
+    public function init()
+    {
+        $this->filesPath = Yii::$app->getModule('grapesjs')->filesPath;
+    }
+
     public function run()
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
@@ -30,9 +37,11 @@ class UploadAction extends BaseAction
         $files = UploadedFile::getInstancesByName('files');
         foreach ($files as $file) {
             $stream = fopen($file->tempName, 'r+');
-            Yii::$app->fs->writeStream($file->name, $stream);
-            $response[] = '/files/' . $file->name;
+            $filename = Yii::$app->security->generateRandomString(16) . '.' . $file->extension;
+            Yii::$app->fs->writeStream($filename, $stream);
+            $response[] = $this->filesPath . $filename;
         }
+
         return [
             'data' => $response
         ];
